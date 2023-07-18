@@ -17,6 +17,7 @@ Designed especially for the Unifi Dream Machine Pro, but should also work for al
 3. Download all the necessary country-specific wireguard config files and edit them according the Split-VPN readme
 4. Name all config files wg0_[country]#[servernumber].conf (wg0 is the interface name) and place them in a "configs" subdirectory
 5. The script is designed to work for all ProtonVPN PLUS servers in Austria (AT) - you can adapt the script to your needs
+6. Replace the original run-vpn.sh (which was set up with split-vpn) with the one in this repository.
 
 ## Issues?
 Did this solve a problem for you? That's awesome! I'm happy. Find me on [Mastodon](https://mastodon.social/@traktuner) and let me know :)
