@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# navigate to folder containing the files
+cd /data/split-vpn/wireguard/protonvpn/
+
 # check for prerequisites
 command -v curl >/dev/null 2>&1 || { echo >&2 "curl required, but not installed. install with 'apt install curl' (debian/ubuntu) or 'yum install curl' (centos/rhel)."; exit 1; }
 command -v jq >/dev/null 2>&1 || { echo >&2 "jq required, but not installed. install with  'apt install jq' (debian/ubuntu) or 'yum install jq' (centos/rhel)."; exit 1; }
