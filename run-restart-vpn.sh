@@ -27,7 +27,7 @@ get_min_load_server() {
     local response=$(curl -s "$apiurl")
     [ -z "$response" ] && { echo "ERROR - API not responding or not reachable"; exit 1; }
 
-    local server_data=$(echo "$response" | jq -c '.LogicalServers[] | select(.EntryCountry == "'$entrycountry'" and .ExitCountry == "'$exitcountry'" and .Tier == '$vpntier')')
+    local server_data=$(echo "$response" | jq -c '.LogicalServers[] | select(.EntryCountry == "'$entrycountry'" and .ExitCountry == "'$exitcountry'" and .Tier == '$vpntier' and .Status != 0)')
 
     local min_load=101
     local min_load_server=""
@@ -42,7 +42,7 @@ get_min_load_server() {
         fi
     done
 
-    [ -z "$min_load_server" ] && { echo "ERROR - server could not be extracted from the API"; exit 1; }
+    [ -z "$min_load_server" ] && { echo "ERROR - No available servers matching criteria"; exit 1; }
     echo "$min_load_server"
 }
 
